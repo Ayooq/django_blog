@@ -1,0 +1,14 @@
+<div class="card text-center mb-3">
+  <h5 class="card-header">{{ post.pub_date }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.body|truncatewords:3 }}</p>
+    <a href="{{ post.get_absolute_url }}" class="btn btn-light">Читать</a>
+  </div>
+  <div class="card-footer text-muted">
+    Тэги:
+    {% for tag in post.tags.all %}
+    <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+    {% endfor %}
+  </div>
+</div>

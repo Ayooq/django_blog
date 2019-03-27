@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block admin-panel %}
+<div class="admin-panel btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+  <a class="admin-panel__item admin-panel__item_admin btn btn-info" href="/admin" role="button">Панель администратора</a>
+
+  <div class="admin-panel__dropdown btn-group dropleft" role="group">
+    <button id="btnGroupDrop1" type="submit" class="admin-panel__button btn btn-light dropdown-toggle" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false" data-offset="-40,5">
+      Создать
+    </button>
+    <div class="admin-panel__menu dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="admin-panel__item dropdown-item" href="{% url 'post_create_url' %}">Пост</a>
+      <a class="admin-panel__item dropdown-item" href="{% url 'tag_create_url' %}">Тэг</a>
+    </div>
+  </div>
+
+  <a class="admin-panel__item admin-panel__item_update btn btn-light"
+     {% if detail %} style="display: block;" {% endif %}
+     href="{{ obj.get_update_url }}"
+     role="button">
+       Редактировать
+  </a>
+  <a class="admin-panel__item admin-panel__item_delete btn btn-danger"
+     {% if detail %} style="display: block;" {% endif %}
+     href="{{ obj.get_delete_url }}"
+     role="button">
+       Удалить
+  </a>
+</div>
+{% endblock %}

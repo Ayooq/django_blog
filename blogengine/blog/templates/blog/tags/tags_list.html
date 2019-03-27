@@ -1,0 +1,25 @@
+{% extends 'blog/common/items_list.html' %}
+
+{% block inner_title %}
+Тэги
+{% endblock %}
+
+{% block list_name %}Тэги{% endblock %}
+
+{% block items %}
+
+{% if tags %}
+{% for tag in tags %}
+<h3 class="text-center">
+  <a href="{{ tag.get_absolute_url }}">
+    {{ tag.title }}
+  </a>
+</h3>
+{% endfor %}
+
+{% else %}
+<p>Список тэгов пуст.</p>
+
+{% endif %}
+
+{% endblock %}

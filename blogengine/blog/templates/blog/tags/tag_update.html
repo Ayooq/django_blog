@@ -1,0 +1,9 @@
+{% extends 'blog/common/render_form.html' %}
+
+{% block inner_title %}Редактирование тэга{% endblock %}
+
+{% block view %}
+{{ tag.get_update_url }}
+{% endblock %}
+
+{% block action %}Применить изменения{% endblock %}

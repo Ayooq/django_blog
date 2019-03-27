@@ -1,0 +1,9 @@
+{% extends 'blog/common/render_form.html' %}
+
+{% block inner_title %}Создание поста{% endblock %}
+
+{% block view %}
+{% url 'post_create_url' %}
+{% endblock %}
+
+{% block action %}Создать{% endblock %}
